@@ -1,2 +1,2 @@
 # iitd-proxylogin
-Python script to check IIITD proxy usage
+Python script to check IITD proxy usage

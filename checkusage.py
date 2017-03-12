@@ -1,5 +1,6 @@
 import os
 import requests
+import warnings
 from getpass import getpass
 from bs4 import BeautifulSoup
 
@@ -30,8 +31,11 @@ def proxyusage(username, password):
 def main():
 	username = input('Enter username: ')
 	password = getpass('Enter password: ')
-	usage = proxyusage(username, password)
-
+	
+	with warnings.catch_warnings():
+	    warnings.simplefilter("ignore")
+	    usage = proxyusage(username, password)
+	
 	print('Data Usage for {}\n'.format(username.upper()))
 	print('Yesterday: {}'.format(usage['yesterday']))
 	print('Week: {}'.format(usage['week']))

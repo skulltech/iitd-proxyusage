@@ -11,6 +11,19 @@ os.environ['REQUESTS_CA_BUNDLE'] = os.getcwd() + '/CCIITD-CA.crt'
 
 
 def proxyusage(username, password):
+    """Returns the IITD proxyusage data.
+
+    Parameters
+    ----------
+    username: str, Kerberos ID
+    password: str, Kerberos Password
+
+    Returns
+    -------
+    dict
+        dict with proxyusage data. The keys of this dict are 'yesterday', 'week', 'month' and 'year'.
+    """
+
     data = {'username': username, 'password': password, 'submit': ''}
     params = {'response_type': 'code', 'client_id': client_id, 'state': 'xyz'}
     headers = {

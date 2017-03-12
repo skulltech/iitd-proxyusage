@@ -1,6 +1,7 @@
-from getpass import getpass
-import requests
 import os
+import requests
+from getpass import getpass
+from bs4 import BeautifulSoup
 
 client_id = 'C7o6R5kXQxjshCLt1bFkU9YOnIKMbyzN'
 
@@ -11,6 +12,7 @@ os.environ['REQUESTS_CA_BUNDLE'] = os.getcwd() + '/CCIITD-CA.crt'
 
 data = {'username': username, 'password': password, 'submit': ''}
 params = {'response_type': 'code', 'client_id': client_id, 'state': 'xyz'}
+
 headers = {
 	'Referer': 'https://oauth.iitd.ac.in/login.php?response_type=code&client_id={}&state=xyz'.format(client_id),
 }
@@ -21,5 +23,6 @@ r = session.post('https://oauth.iitd.ac.in/authorize.php', data=data, params=par
 redirect = r.headers['Location']
 r = session.get(redirect, allow_redirects=False)
 
-resp = session.get('https://track.iitd.ac.in/data_usage.php')
-print(resp.text)
+page = session.get('https://track.iitd.ac.in/data_usage.php')
+soup = BeautifulSoup(page.text, 'html.parser')
+elem = soup.select('html')

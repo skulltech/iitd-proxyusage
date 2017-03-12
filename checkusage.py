@@ -46,7 +46,7 @@ def main():
 		sys.exit()
 	
 	print('\nData Usage for {}\n'.format(username.upper()))
-	print(tabulate([['Yesterday', usage['yesterday']], ['Week', usage['week']], ['Month', usage['month']], ['Year', usage['month']]]))
+	print(tabulate([['Yesterday', usage['yesterday']], ['Week', usage['week']], ['Month', usage['month']], ['Year', usage['year']]]))
 
 
 if __name__=='__main__':

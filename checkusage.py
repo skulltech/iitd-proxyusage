@@ -3,6 +3,7 @@ import requests
 import warnings
 from getpass import getpass
 from bs4 import BeautifulSoup
+from tabulate import tabulate
 
 
 client_id = 'C7o6R5kXQxjshCLt1bFkU9YOnIKMbyzN'
@@ -31,17 +32,14 @@ def proxyusage(username, password):
 def main():
 	username = input('Enter username: ')
 	password = getpass('Enter password: ')
-	
+
 	with warnings.catch_warnings():
 	    warnings.simplefilter("ignore")
 	    usage = proxyusage(username, password)
 	
-	print('Data Usage for {}\n'.format(username.upper()))
-	print('Yesterday: {}'.format(usage['yesterday']))
-	print('Week: {}'.format(usage['week']))
-	print('Month: {}'.format(usage['month']))
-	print('Year: {}'.format(usage['year']))
-
+	print('\nData Usage for {}\n'.format(username.upper()))
+	print(tabulate([['Yesterday', usage['yesterday']], ['Week', usage['week']], ['Month', usage['month']], ['Year', usage['month']]]))
+	
 
 if __name__=='__main__':
 	main()

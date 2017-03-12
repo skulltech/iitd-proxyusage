@@ -25,4 +25,10 @@ r = session.get(redirect, allow_redirects=False)
 
 page = session.get('https://track.iitd.ac.in/data_usage.php')
 soup = BeautifulSoup(page.text, 'html.parser')
-elem = soup.select('html')
+elems = soup.select('td[align="right"]')[4:]
+
+print('Data Usage for {}\n'.format(username.upper()))
+print('Yesterday: {}'.format(elems[0].text))
+print('Week: {}'.format(elems[1].text))
+print('Month: {}'.format(elems[2].text))
+print('Year: {}'.format(elems[3].text))

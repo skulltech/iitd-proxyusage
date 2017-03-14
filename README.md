@@ -4,7 +4,8 @@ Python script to check IITD proxy usage
 ## Installation
 
 1. Clone the Repo: `git clone https://github.com/SkullTech/iitd-proxyusage.git`
-2. Install the requirements: `pip3 install -r requirements.txt`
+2. CD into the Repo folder: `cd iitd-proxyusage`
+3. Install the requirements: `pip3 install -r requirements.txt`
 
 ## Usage
 

@@ -1,5 +1,5 @@
-# iitd-proxylogin
-Python script to check IIT Delhi proxy and wi-fi usage
+# iitd-proxyusage
+Python script to check proxy and wi-fi usage @ IIT Delhi.
 
 ## Installation
 
@@ -10,8 +10,8 @@ Python script to check IIT Delhi proxy and wi-fi usage
 ## Usage
 
 As a script.
-```
-console
+
+```console
 sumit@HAL9000:~/Sysadmin/iitd-proxyusage$ python3 checkusage.py 
 [*] Enter username: cs5160400
 [*] Enter password: 
@@ -35,8 +35,7 @@ Wi-Fi  monday      1151
 ```
 
 You can also import the proxyusage funtion and use it directly.
-```
-python
+```python
 >>> from checkusage import proxyusage
 >>> usage = proxyusage('cs5160400', 'notmyrealpassword')
 >>> usage
